@@ -1,0 +1,30 @@
+# Example 11
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-pod-node-affinity 
+spec:
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 20
+        preference:
+          matchExpressions:
+          - key: share-type
+            operator: In
+            values:
+            - shared
+      - weight: 80
+        preference:
+          matchExpressions:
+          - key: share-type
+            operator: In
+            values:
+            - dedicated
+  containers:
+  - args:
+    - sleep
+    - "99999"
+    image: busybox
+    name: main
+

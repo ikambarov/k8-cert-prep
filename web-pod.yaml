@@ -1,0 +1,16 @@
+# Example 15
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: web-pod
+  name: web-pod
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+      name: http
+      protocol: TCP
+

@@ -1,0 +1,18 @@
+# Example 21
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nginx-rc
+spec:
+  replicas: 2
+  selector:
+    app: nginx-rc-pod
+  template:
+    metadata:
+      labels:
+        app: nginx-rc-pod
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+

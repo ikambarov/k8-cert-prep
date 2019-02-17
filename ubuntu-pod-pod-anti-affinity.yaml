@@ -1,0 +1,20 @@
+# Example 14
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: appgroup2
+  name: ubuntu-pod-pod-anti-affinity
+spec:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - topologyKey: kubernetes.io/hostname
+        labelSelector:
+          matchLabels:
+            app: appgroup1
+  containers:
+  - name: ubuntu
+    image: ubuntu
+    stdin: true
+    tty: true

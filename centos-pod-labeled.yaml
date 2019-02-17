@@ -1,0 +1,16 @@
+# Example 3
+apiVersion: v1
+kind: Pod
+metadata:
+  name: centos-pod-labaled
+  labels:
+    app: centos-pod-labeled
+spec:
+  nodeSelector:
+    type: "gpu"
+  containers:
+  - image: centos
+    name: centos-pod
+    stdin: true
+    tty: true 
+
